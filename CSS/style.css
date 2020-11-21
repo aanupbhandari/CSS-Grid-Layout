@@ -1,0 +1,331 @@
+/* variables */
+
+:root {
+  --clr-primary: rgb(248, 7, 7);
+  --navcolor: black;
+  --hovcolor: rgb(214, 119, 119);
+  --transition: all 0.3s linear;
+  --spacing: 0.75rem;
+}
+
+/* global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inconsolata", monospace;
+  color: black;
+  background: gray;
+  line-height: 1.5;
+  /* margin: 2rem auto; */
+}
+a {
+  text-decoration: none;
+}
+img {
+  width: 100%;
+  display: block;
+}
+h1,
+h2,
+h3 {
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  margin-bottom: 1.25rem;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  margin-bottom: 0;
+}
+p {
+  font-weight: 300;
+  font-size: 0.7rem;
+  line-height: 2;
+}
+.btn {
+  display: inline-block;
+  border: 1.5px solid red;
+  color: white;
+  background: black;
+  padding: 0.5rem 3rem;
+  margin: 3rem;
+  text-transform: capitalize;
+  transition: var(--transition);
+}
+.btn:hover {
+  color: black;
+  background: white;
+}
+/* navbar */
+.main-navbar {
+  background: var(--navcolor);
+  padding: 0 2rem;
+}
+.links {
+  list-style: none;
+}
+.link {
+  color: white;
+  /* display:block gives to customize screen to whole screen */
+  display: block;
+  padding: 1rem 0;
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  transition: var(--transition);
+}
+.link:hover {
+  color: var(--clr-primary);
+}
+@media screen and (min-width: 992px) {
+  .navbar {
+    max-width: 1170px;
+    /* margin:0 auto places links on the center */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  /* .link {
+    text-align: center;
+  } */
+}
+/* hero */
+.hero-header {
+  min-height: 100vh;
+  background: var(--clr-primary);
+  color: white;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.hero-banner {
+  padding: 0 1rem;
+}
+.hero-banner p {
+  width: 80%;
+  max-width: 552px;
+  font-size: 1rem;
+}
+@media screen and (min-width: 772px) {
+  .hero-header {
+    background: linear-gradient(rgba(241, 42, 35, 00.5), rgba(0, 0, 0, 0.5)),
+      url("../images/background.jpeg") center/cover fixed no-repeat;
+  }
+}
+/* cards */
+.title {
+  text-align: center;
+}
+.cards-layout {
+  padding: 4rem 0;
+}
+/* cards center act as a parent container to work with the css grid */
+.cards-center {
+  width: 80vw;
+  max-width: 1170px;
+  margin: 2rem auto;
+}
+.cards {
+  border: 2px solid whitesmoke;
+  margin-bottom: 3rem;
+}
+.cards-info {
+  padding: 1rem;
+}
+/* .cards-info p {
+  font-weight: 300;
+  font-size: 0.9rem;
+} */
+.cards-footer {
+  background: orange;
+  padding: 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+.card img {
+  height: 100%;
+}
+
+.cards-center {
+  display: grid;
+  column-gap: 2rem;
+  /* for three column layout */
+  /* 1170(max-width)-64(colm gap) i.e 3*16/3=368(minvalue) */
+  /* grid-template-columns: repeat(auto-fill, minmax(368px, 1fr)); */
+  /* for four column layout */
+  /* (1170(max-width)-96(colm gap) i.e 4*16)/4=268.5(minvalue) */
+  grid-template-columns: repeat(auto-fill, minmax(268.5px, 1fr));
+}
+
+/* tiles */
+
+.tiles {
+  padding: 4rem 0;
+}
+.tiles-title {
+  text-align: center;
+}
+.tiles-center {
+  width: 90vw;
+  max-width: 1170vh;
+  margin: 2rem auto;
+  display: grid;
+  row-gap: 2rem;
+}
+@media screen and (min-width: 772px) {
+  .tiles-center {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .tiles-center {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1170px) {
+  .tiles-center {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 200px);
+    grid-template-areas:
+      "a a a b"
+      "a a a c"
+      "d d d d"
+      "e f f f"
+      "e g h i";
+  }
+  .tiles img {
+    height: 100%;
+    object-fit: cover;
+  }
+  .tiles-1 {
+    grid-area: a;
+  }
+  .tiles-2 {
+    grid-area: b;
+  }
+  .tiles-3 {
+    grid-area: c;
+  }
+  .tiles-4 {
+    grid-area: d;
+  }
+  .tiles-5 {
+    grid-area: e;
+  }
+  .tiles-6 {
+    grid-area: f;
+  }
+  .tiles-7 {
+    grid-area: g;
+  }
+  .tiles-8 {
+    grid-area: h;
+  }
+  .tiles-9 {
+    grid-area: i;
+  }
+}
+
+/* layout */
+.layout-navbar {
+  background: var(--navcolor);
+  padding: 0 2rem;
+}
+.link {
+  display: inline-block;
+}
+.header {
+  background: brown;
+  color: aliceblue;
+  text-align: center;
+  padding: 0.4rem 0.5rem;
+}
+.section {
+  padding: 2rem;
+}
+.section p {
+  font-size: 1rem;
+}
+.sidebar {
+  background: brown;
+  font-size: 1rem;
+  padding: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+.sidebar span {
+  color: gainsboro;
+}
+.footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+.footer p {
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+.main {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-template-rows: auto auto 1fr auto auto - helps to span the footer and sidebar to be locate on their exact position */
+  grid-template-rows: auto auto 1fr auto auto;
+}
+@media screen and (min-width: 768px) {
+  .navbar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+  }
+}
+@media screen and (min-width: 992px) {
+  .main {
+    grid-template-columns: [start] 200px [col-1end] 1fr [col-2end] 50px[end];
+    grid-template-rows: [start] auto [row-1end] 1fr [row-2end] auto [end];
+  }
+  .header {
+    grid-column: start/end;
+    grid-row: start/row-1end;
+  }
+  .navbar {
+    grid-column: start/col-1end;
+    grid-row: row-1end/row-2end;
+  }
+  .section {
+    grid-column: col-1end/col-2end;
+    grid-row: row-1end/row-2end;
+  }
+  .sidebar {
+    grid-column: col-2end/end;
+    grid-row: row-1end/row-2end;
+  }
+  .footer {
+    grid-column: start/end;
+    grid-row: row-2end/end;
+  }
+  .navbar {
+    grid-template-columns: 1fr;
+    align-items: center;
+    min-height: 100%;
+  }
+  .sidebar {
+    grid-template-columns: 1fr;
+    align-items: center;
+    min-height: 100%;
+  }
+}
